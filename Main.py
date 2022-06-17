@@ -12,8 +12,8 @@ FriendshipPointsOffset = 0x4D8;
 TotalPlaytimeOffset = 0x4DC;
 PlayerOffset = 0x11B0;
 length = 0x6C;
-PlayerPlace = 57;
-TotalMember = 80;
+PlayerPlace = 57;  ##←←Set the number of player place you want to get info
+TotalMember = 80;  ##←←This value can read by reading .dat automatically
 
 def byte2txt(a):
    x = a.decode('shift_jis')
@@ -119,7 +119,7 @@ def movelv(a,b,c):
     else:
         return ' '
                 
-              
+##Set your save file name↓↓              
 
 with open('.dat','rb') as f:
    f.seek(0x74, os.SEEK_SET)
@@ -127,7 +127,6 @@ with open('.dat','rb') as f:
    team = byte2txt(team_h)
    print(team)
    
-with open('.dat','rb') as f:
    UserSaveInfo = []
    
    f.seek(UserNameOffset, os.SEEK_SET)
